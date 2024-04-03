@@ -3,29 +3,21 @@ def MaximoComunDivisor(a, b):
         a, b = b, a % b
     return a
 
+def solicitar_numero(mensaje):
+    while True:
+        try:
+            num = int(input(mensaje))
+            if num > 0:
+                return num
+            else:
+                print("Por favor, ingresa un número positivo.")
+        except ValueError:
+            print("Por favor, ingresa un número entero válido.")
+
 print("CALCULADORA DE MÁXIMO COMÚN DIVISOR")
 
-# Solicitar al usuario ingresar el primer número
-while True:
-    try:
-        num1 = int(input("Ingresa el primer número: "))
-        if num1 > 0:
-            break
-        else:
-            print("Por favor, ingresa un número positivo.")
-    except ValueError:
-        print("Por favor, ingresa un número entero válido.")
-
-# Solicitar al usuario ingresar el segundo número
-while True:
-    try:
-        num2 = int(input("Ingresa el segundo número: "))
-        if num2 > 0:
-            break
-        else:
-            print("Por favor, ingresa un número positivo.")
-    except ValueError:
-        print("Por favor, ingresa un número entero válido.")
+num1 = solicitar_numero("Ingresa el primer número: ")
+num2 = solicitar_numero("Ingresa el segundo número: ")
 
 resultado = MaximoComunDivisor(num1, num2)
 print("El Máximo Común Divisor de", num1, "y", num2, "es:", resultado)
